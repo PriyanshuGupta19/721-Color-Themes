@@ -4,10 +4,16 @@
   "description": "",
   "version": "0.0.1",
   "publisher": "721-Color-Themes",
+  "icon": "icon.png",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/PriyanshuGupta19/721-Color-Themes"
   },
+  "keywords":[
+    "721-Color-Themes",
+    "721-color-themes",
+    "721colorthemes"
+  ],
   "engines": {
     "vscode": "^1.94.0"
   },
