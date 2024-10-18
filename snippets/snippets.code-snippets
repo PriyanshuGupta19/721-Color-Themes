@@ -116,7 +116,7 @@
     },
 
     "Row Color Change": {
-        "prefix": "!rowcolorchange",
+        "prefix": "!rowcolorchangegreen",
         "body": [
     "// [",
     "//   {",
@@ -228,11 +228,11 @@
     "        document.getElementById('selectedCount').innerText = `Selected Players: ${selectedCount}`;",
     "    }"
   ],
-        "description": "rowcolorchange"
+        "description": "rowcolorchangegreen"
     },
 
     "Issued Books": {
-        "prefix": "!issuedbooks",
+        "prefix": "!issuedbooksred",
         "body": [
     "// [",
     "//     {",
@@ -339,7 +339,7 @@
     "</body>",
     "</html>"
   ],
-        "description": "issuedbooks"
+        "description": "issuedbooksred"
     },
 
 
@@ -459,6 +459,108 @@
   ],
         "description": "http"
     },
+
+
+    "Update Task Todo": {
+        "prefix": "!updatetasktodo",
+        "body": [
+    "const express = require('express');",
+    "const bodyParser = require('body-parser');",
+    "const fs = require('fs');",
+    "const path = require('path');",
+    "",
+    "const app = express();",
+    "const PORT = 3000;",
+    "",
+    "app.use(bodyParser.urlencoded({ extended: true }));",
+    "app.use(express.static('public')); // To serve static files like updateTask.html",
+    "",
+    "// Task 1: Endpoint to update task",
+    "app.post('/updateTask', (req, res) => {",
+    "  const taskId = req.body.taskid;",
+    "  const newStatus = req.body.status;",
+    "",
+    "  // Read the todo.json file",
+    "  fs.readFile('todo.json', (err, data) => {",
+    "    if (err) {",
+    "      res.status(500).send('Server Error');",
+    "      return;",
+    "    }",
+    "",
+    "    const tasks = JSON.parse(data);",
+    "",
+    "    // Find the task by ID",
+    "    const task = tasks.find(task => task.taskid === taskId);",
+    "",
+    "    if (task) {",
+    "      // Update task status",
+    "      task.status = newStatus;",
+    "",
+    "      // Write back to file",
+    "      fs.writeFile('todo.json', JSON.stringify(tasks, null, 2), err => {",
+    "        if (err) {",
+    "          res.status(500).send('Server Error');",
+    "          return;",
+    "        }",
+    "",
+    "        res.send('Task updated successfully.');",
+    "      });",
+    "    } else {",
+    "      res.status(404).send('Task not found.');",
+    "    }",
+    "  });",
+    "});",
+    "",
+    "// Start the server",
+    "app.listen(PORT, () => {",
+    "  console.log(`Server running at http://localhost:${PORT}`);",
+    "});",
+    "",
+    "",
+    "// <!DOCTYPE html>",
+    "// <html lang=\"en\">",
+    "// <head>",
+    "//   <meta charset=\"UTF-8\">",
+    "//   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+    "//   <title>Update Task</title>",
+    "// </head>",
+    "// <body>",
+    "//   <h1>Update Task Status</h1>",
+    "//   <form action=\"/updateTask\" method=\"POST\">",
+    "//     <label for=\"taskid\">Task ID:</label>",
+    "//     <input type=\"text\" id=\"taskid\" name=\"taskid\" required>",
+    "//     <br><br>",
+    "//     <label for=\"status\">Status:</label>",
+    "//     <input type=\"text\" id=\"status\" name=\"status\" required>",
+    "//     <br><br>",
+    "//     <button type=\"submit\">Update Task</button>",
+    "//   </form>",
+    "// </body>",
+    "// </html>",
+    "",
+    "",
+    "",
+    "// [",
+    "//   {",
+    "//     \"taskid\": \"1\",",
+    "//     \"name\": \"Complete shopping filter\",",
+    "//     \"status\": \"incomplete\"",
+    "//   },",
+    "//   {",
+    "//     \"taskid\": \"2\",",
+    "//     \"name\": \"Update server endpoint\",",
+    "//     \"status\": \"incomplete\"",
+    "//   },",
+    "//   {",
+    "//     \"taskid\": \"3\",",
+    "//     \"name\": \"Refactor task manager\",",
+    "//     \"status\": \"complete\"",
+    "//   }",
+    "// ]"
+  ],
+        "description": "updatatasktodo"
+    },
+
 
 
     "Basic HTTP Server": {
