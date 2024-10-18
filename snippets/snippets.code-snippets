@@ -1,6 +1,6 @@
 {
     "Basic Express Server": {
-        "prefix": "!expressserver",
+        "prefix": "!_expressserver",
         "body": [
             "const express = require('express');",
     "const app = express();",
@@ -18,7 +18,7 @@
     },
 
     "Dropdown": {
-        "prefix": "!dropdown",
+        "prefix": "!_dropdown",
         "body": [
     "// [",
     "//     {",
@@ -116,7 +116,7 @@
     },
 
     "Row Color Change": {
-        "prefix": "!rowcolorchangegreen",
+        "prefix": "!_rowcolorchangegreen",
         "body": [
     "// [",
     "//   {",
@@ -232,7 +232,7 @@
     },
 
     "Issued Books": {
-        "prefix": "!issuedbooksred",
+        "prefix": "!_issuedbooksred",
         "body": [
     "// [",
     "//     {",
@@ -345,7 +345,7 @@
 
 
     "HTTP": {
-        "prefix": "!http",
+        "prefix": "!_http",
         "body": [
     "const http = require('http');",
     "const fs = require('fs');",
@@ -462,7 +462,7 @@
 
 
     "Update Task Todo": {
-        "prefix": "!updatetasktodo",
+        "prefix": "!_updatetasktodo",
         "body": [
     "const express = require('express');",
     "const bodyParser = require('body-parser');",

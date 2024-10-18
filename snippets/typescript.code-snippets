@@ -1,6 +1,6 @@
 {
     "TypeScript 1": {
-        "prefix": "!t1",
+        "prefix": "!_t1",
         "body": [
     "const sum = (a: number, b: number = a / 2): number => a + b;",
     "",
@@ -120,7 +120,7 @@
     },
 
     "TypeScript 2": {
-        "prefix": "!t2",
+        "prefix": "!_t2",
         "body": [
     "// npm install --save-dev typescript",
     "// npx tsc --init",
