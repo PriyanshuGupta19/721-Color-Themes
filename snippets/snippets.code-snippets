@@ -570,5 +570,111 @@
         ],
         "description": ""
     },
+    "Multer": {
+        "prefix": "!multer",
+        "body": [
+    "const multer = require('multer');",
+    "",
+    "const storage = multer.diskStorage({",
+    "    destination: (req, file, cb) => {",
+    "        cb(null, './uploads');",
+    "    },",
+    "    filename: (req, file, cb) => {",
+    "        cb(null, file.originalname);",
+    "    }",
+    "});",
+    "",
+    "const upload = multer({ storage: storage });"
+],
+        "description": "multer"
+    },
+    "Session": {
+        "prefix": "!session",
+        "body": [
+    "const session = require('express-session');",
+    "",
+    "app.use(session({",
+    "    resave: false,",
+    "    saveUninitialized: false,",
+    "    secret: 'secret',",
+    "    // cookie: { maxAge: 30 * 60 * 1000 } // adds age to the session",
+    "}));"
+],
+        "description": "session"
+    },
+    "Mongoose": {
+        "prefix": "!mongoose",
+        "body":[
+"const mongoose = require('mongoose');",
+"",
+"mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });"
+],
+        "description": "mongoose"
+    },
+    
+
+    "Multer_N": {
+        "prefix": "!multer_n",
+        "body": [
+  "const express = require('express');",
+  "const multer = require('multer');",
+  "const path = require('path');",
+  "const app = express();",
+  "const PORT = 7000;",
+  "",
+  "const storage = multer.diskStorage({",
+  "  destination: function (req, file, cb) {",
+  "    cb(null, 'uploads/');",
+  "  },",
+  "  filename: function (req, file, cb) {",
+  "    cb(null, `${Date.now()}-${file.originalname}`);",
+  "  }",
+  "});",
+  "",
+  "const upload = multer({ storage: storage });",
+  "",
+  "app.use('/uploads', express.static(path.join(__dirname, 'uploads')));",
+  "",
+  "app.get('/', (req, res) => {",
+  "  res.sendFile(path.join(__dirname, 'index.html'));",
+  "});",
+  "",
+  "app.post('/upload', upload.array('images', 10), (req, res) => {",
+  "  if (!req.files || req.files.length === 0) {",
+  "    return res.status(400).send('No files uploaded.');",
+  "  }",
+  "  res.send(`Files uploaded successfully `);",
+  "});",
+  "",
+  "app.listen(PORT, () => {",
+  "  console.log(`Server is running on http://localhost:${PORT}`);",
+  "});",
+  "",
+  "/* <h1>Upload Images</h1>",
+  "<form id=\"uploadForm\" enctype=\"multipart/form-data\">",
+  "    <input type=\"file\" name=\"images\" accept=\"image/*\" multiple>",
+  "    <button type=\"submit\">Upload</button>",
+  "</form>",
+  "<div id=\"result\"></div>",
+  "<script>",
+  "    document.getElementById('uploadForm').addEventListener('submit', function(e) {",
+  "        e.preventDefault();",
+  "        const formData = new FormData(this);",
+  "        fetch('/upload', {",
+  "            method: 'POST',",
+  "            body: formData,",
+  "        })",
+  "        .then(response => response.text())",
+  "        .then(data => {",
+  "            document.getElementById('result').innerHTML = data;",
+  "        })",
+  "        .catch(error => {",
+  "            console.error('Error:', error);",
+  "        });",
+  "    });",
+  "</script> */"
+],
+        "description": "multer_n"
+    },
 }
 
