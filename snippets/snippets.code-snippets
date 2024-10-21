@@ -1325,6 +1325,7 @@
     "    console.log('Server running on http://localhost:3000');",
     "});",
     "",
+    "// npm install express ejs mongoose bcryptjs express-session connect-mongo dotenv",
     "",
     "// File structure",
     "// /EcommerceApp",
@@ -1486,8 +1487,8 @@
     },
     
 
-    "Multer_N": {
-        "prefix": "!multer_n",
+    "Nikhil Multer": {
+        "prefix": "!n_multer",
         "body": [
   "const express = require('express');",
   "const multer = require('multer');",
@@ -1548,6 +1549,43 @@
   "</script> */"
 ],
         "description": "multer_n"
+    },
+
+
+    "Nikhil MongoDB": {
+        "prefix": "!n_mongodb",
+        "body": [
+    "app.use(session({",
+    "    secret: 'Kucbhilikhdo',",
+    "    resave: false,",
+    "    saveUninitialized: true",
+    "}));",
+    "",
+    "const uri = \"mongodb+srv://gulerianikhil69:akshat@cluster0.kegbr.mongodb.net/test\";",
+    "",
+    "async function connectDB() {",
+    "    try {",
+    "        const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });",
+    "        await client.connect();",
+    "        console.log('Successfully connected to db');",
+    "        const db = client.db();",
+    "        const usersCollection = db.collection('users');",
+    "        return { client, usersCollection };",
+    "    } catch (err) {",
+    "        console.log('Error connecting to db : ', err);",
+    "    }",
+    "}",
+    "",
+    "connectDB();",
+    "",
+    "function isAuthenticated(req, res, next) {",
+    "    if (req.session.user) {",
+    "        return next();",
+    "    }",
+    "    res.redirect('/login');",
+    "}"
+],
+        "description": "n_mongodb"
     },
 }
 
