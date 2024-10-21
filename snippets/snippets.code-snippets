@@ -1428,7 +1428,14 @@
     "        <% }) %>",
     "    </ul>",
     "</body>",
-    "</html>"
+    "</html>",
+    "",
+    "",
+    "// .env",
+    "",
+    "// MONGO_URI=mongodb+srv://priyanshu:12345678p@cluster0.hboohgw.mongodb.net/database?retryWrites=true&w=majority&appName=Cluster0",
+    "",
+    "",
 ],
         "description": "ecommerce"
     },
@@ -1640,6 +1647,54 @@
     "</html>"
 ],
         "description": "loginsignupmongodb"
+    },
+
+
+
+
+    "Event Emitter": {
+        "prefix": "!_eventemitter",
+        "body": [
+    "const EventEmitter = require('events');",
+    "const eventEmitter = new EventEmitter();",
+    "",
+    "// Register an event listener",
+    "eventEmitter.on('greet', (name) => {",
+    "    console.log(`Hello, ${name}!`);",
+    "});",
+    "",
+    "// Emit the event",
+    "eventEmitter.emit('greet', 'John');",
+    "",
+    "",
+    "// Advanced example with custom class",
+    "const EventEmitter = require('events');",
+    "",
+    "// Create a Car class that extends EventEmitter",
+    "class Car extends EventEmitter {",
+    "    constructor(brand) {",
+    "        super();",
+    "        this.brand = brand;",
+    "    }",
+    "",
+    "    start() {",
+    "        console.log(`${this.brand} car started!`);",
+    "        this.emit('start');",
+    "    }",
+    "}",
+    "",
+    "// Instantiate the Car class",
+    "const myCar = new Car('Toyota');",
+    "",
+    "// Register a listener for the 'start' event",
+    "myCar.on('start', () => {",
+    "    console.log('The car is ready to go!');",
+    "});",
+    "",
+    "// Start the car",
+    "myCar.start();"
+],
+        "description": "eventemitter"
     },
 
 
