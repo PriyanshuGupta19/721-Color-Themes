@@ -864,5 +864,48 @@
     "]"
   ],
   "description": "rafcart"
+    },
+    "counter": {
+        "prefix": "!_counter",
+        "body": [
+  "// App.tsx",
+  "import { useState } from 'react';",
+  "",
+  "function App() {",
+  "  const [count, setCount] = useState(0);",
+  "",
+  "  return (",
+  "    <div className=\"h-screen flex items-center justify-center bg-gray-100\">",
+  "      <div className=\"bg-white p-8 rounded-2xl shadow-md text-center\">",
+  "        <h1 className=\"text-2xl font-bold mb-4\">Simple Counter</h1>",
+  "        <p className=\"text-3xl font-semibold mb-6\">{count}</p>",
+  "        <div className=\"space-x-4\">",
+  "          <button",
+  "            onClick={() => setCount(count - 1)}",
+  "            className=\"bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600\"",
+  "          >",
+  "            Decrease",
+  "          </button>",
+  "          <button",
+  "            onClick={() => setCount(0)}",
+  "            className=\"bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600\"",
+  "          >",
+  "            Reset",
+  "          </button>",
+  "          <button",
+  "            onClick={() => setCount(count + 1)}",
+  "            className=\"bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600\"",
+  "          >",
+  "            Increase",
+  "          </button>",
+  "        </div>",
+  "      </div>",
+  "    </div>",
+  "  );",
+  "}",
+  "",
+  "export default App;"
+],
+"description": "counter"
     }
 }
