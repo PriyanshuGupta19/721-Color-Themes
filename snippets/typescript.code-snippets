@@ -1073,7 +1073,7 @@
 
 
 
-    
+
     "todo": {
         "prefix": "!_todo",
         "body": [
@@ -1160,5 +1160,71 @@
   "}"
 ],
 "description": "todo"
+    },
+
+
+
+    "routing-usenevigate": {
+        "prefix": "!_routing-usenevigate",
+        "body": [
+  "// npm i react-router-dom",
+  "",
+  "import { BrowserRouter as Router, Routes, Route, useNavigate } from \"react-router-dom\";",
+  "import { useState } from \"react\";",
+  "",
+  "function Home() {",
+  "  const navigate = useNavigate();",
+  "  return (",
+  "    <div className=\"p-4\">",
+  "      <h1 className=\"text-2xl font-bold mb-4\">Dashboard</h1>",
+  "      <div className=\"flex gap-4\">",
+  "        <button onClick={() => navigate(\"/movies\")} className=\"bg-blue-500 text-white px-4 py-2 rounded\">Movies</button>",
+  "        <button onClick={() => navigate(\"/students\")} className=\"bg-green-500 text-white px-4 py-2 rounded\">Students</button>",
+  "      </div>",
+  "    </div>",
+  "  );",
+  "}",
+  "",
+  "function Movies() {",
+  "  const [movies] = useState([\"Inception\", \"Interstellar\", \"Dune\"]);",
+  "  return (",
+  "    <div className=\"p-4\">",
+  "      <h2 className=\"text-xl font-semibold mb-2\">Movies List</h2>",
+  "      <ul className=\"list-disc list-inside\">",
+  "        {movies.map((movie, index) => (",
+  "          <li key={index}>{movie}</li>",
+  "        ))}",
+  "      </ul>",
+  "    </div>",
+  "  );",
+  "}",
+  "",
+  "function Students() {",
+  "  const [students] = useState([\"Alice\", \"Bob\", \"Charlie\"]);",
+  "  return (",
+  "    <div className=\"p-4\">",
+  "      <h2 className=\"text-xl font-semibold mb-2\">Students List</h2>",
+  "      <ul className=\"list-disc list-inside\">",
+  "        {students.map((student, index) => (",
+  "          <li key={index}>{student}</li>",
+  "        ))}",
+  "      </ul>",
+  "    </div>",
+  "  );",
+  "}",
+  "",
+  "export default function App() {",
+  "  return (",
+  "    <Router>",
+  "      <Routes>",
+  "        <Route path=\"/\" element={<Home />} />",
+  "        <Route path=\"/movies\" element={<Movies />} />",
+  "        <Route path=\"/students\" element={<Students />} />",
+  "      </Routes>",
+  "    </Router>",
+  "  );",
+  "}"
+],
+"description": "routing-usenevigate"
     }
 }
